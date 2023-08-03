@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список городов</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <h1 class="list">Список городов</h1>
+
+            <button class="btn">
+                <a href="{{ url_for('add_city') }}">Добавить город</a>
+            </button>
+
+            {% for city in all_cities %}
+
+            <span class="city">
+                <a href="{{ url_for('cities', city_id=city.id) }}">{{ city.name }} ({{ city.country
+                    }})</a>
+                <form method="post" action="/delete">
+                    <input type="hidden" name="id" value="{{ city.id }}">
+                    <button class="delete" id="btn" type="submit">
+                        delete
+                    </button>
+                </form>
+
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1612751754_68-p-goluboi-fon-s-oblakami-78.jpg);
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 35%;
+            height: auto;
+            margin: 30px auto;
+            background-color: rgba(246, 240, 240, 25%);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(225, 115, 11, 0.907);
+            overflow: scroll;
+        }
+
+        .content {
+            height: 620px;
+        }
+
+        .list {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #0e0f0f;
+        }
+
+        .list:hover {
+            color: rgb(238, 238, 246);
+        }
+
+        .city {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .city a {
+            text-decoration: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 24px;
+            margin-top: 10px;
+            color: #3814c6;
+            transition: color 0.5s;
+        }
+
+        .city a:hover {
+            color: rgb(254, 68, 6)
+        }
+
+        .btn, .delete{
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn a {
+            display: block;
+            padding: 5px 10px;
+            color: #0d0d0d;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.5s;
+
+        }
+
+        .btn a:hover {
+            background-color: #2ee712;
+        }
+
+        .delete 
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о городе</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="h1">{{ city.name }}</h1>
+        <p>Страна: {{ city.country }}</p>
+        <p>Население: {{ city.population }}</p>
+        <button class="btn">
+            <a href="{{ url_for('index') }}">Назад к списку городов</a>
+        </button>
+    </div>
+</body>
+</html>
